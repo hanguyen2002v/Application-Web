@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProjectW.styles.css" asp-append-version="true" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo-book.png" height="70px" width="70px" /></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/ab.png" height="50px" width="100px" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,19 +32,27 @@
                         </li>
                     </ul>
                 </div>
+                <div class="search-card d-flex">
+                    <form class="d-flex align-items-center">
+                        <input class="form-control me-2" type="search" placeholder="Search"/>
+                    </form>
+                </div>
                 <div>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                        </li>
-                    </ul>
+                    <div class="dropdown d-flex align-items-center" style="padding-right:95px">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-bag"></i>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Login</a></li>
+                            <li><a class="dropdown-item" href="#">My Order</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -50,29 +60,26 @@
     </div>
 
         <footer class="page-footer shadow">
-            <div class="d-flex flex-wrap justify-content-between mx-2 py-2" style="width: 80%">
+            <div class="d-flex flex-wrap justify-content-between mx-2 py-2">
                 <div class="d-flex flex-wrap align-items-center">
                     <a href="/#" class="d-flex p-0 text-dark">
-                        <img alt="logo" src="~/images/logo-book.png" height="30px" width="30px"/>
-                        <span class="ms-4 h5 mb-0 font-weight-bold">My Book</span>
+                        <img alt="logo" src="~/images/ab.png" height="50px" width="100px"/>
                     </a>
-                    <span style="
-                        font-size: 3em;
-                        margin: -2rem 0px -1.5rem 1rem;
-                        color: #c4c4c4;
-                      ">&#8226;</span>
                     <small class="ms-2">&copy; My Book, 2020. All rights reserved.</small>
                 </div>
-                <div>
-                    <button class="btn-flat p-2">
-                        <img src="~/images/tw.png" height="24px" width="24px" />
-                    </button>
-                    <button class="btn-flat p-2">
-                        <img src="~/images/fb.png" height="24px" width="24px" />
-                    </button>
-                    <button class="btn-flat p-2">
-                        <img src="~/images/ig.png" height="24px" width="24px" />
-                    </button>
+                <div class="d-flex">
+                    <p style="padding-right:10px">
+                        Follow us
+                    </p>
+                    <a href="#" style="margin-right:10px">
+                        <img src="~/images/tw.png" height="30px" width="30px" />
+                    </a>
+                    <a href="#" style="margin-right:10px">
+                        <img src="~/images/fb.png" height="30px" width="30px" />
+                    </a>
+                    <a href="#">
+                        <img src="~/images/ig.png" height="30px" width="30px" />
+                    </a>       
                 </div>
             </div>
         </footer>
