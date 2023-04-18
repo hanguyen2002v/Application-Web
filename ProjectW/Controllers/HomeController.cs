@@ -7,6 +7,7 @@ namespace ProjectW.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private static readonly List<Book> books = new List<Book>();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -20,7 +21,7 @@ namespace ProjectW.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            return View(books);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
