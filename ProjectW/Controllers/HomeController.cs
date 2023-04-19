@@ -1,17 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectW.Models;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+using ProjectW.Data;
+//using ProjectW.Models;
 
 namespace ProjectW.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private static readonly List<Book> books = new List<Book>();
+        private readonly ProjectWContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ProjectWContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -21,6 +25,7 @@ namespace ProjectW.Controllers
 
         public IActionResult Privacy()
         {
+            var books = _context.Book.ToList();
             return View(books);
         }
 

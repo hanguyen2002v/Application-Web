@@ -1,8 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-@model List<ProjectW.Models.Book>
-<h1>@ViewData["Title"]</h1>
+@model List<Book>
+@*<h1>@ViewData["Title"]</h1>*@
 
 <div class="container">
     <div class="row">
@@ -13,20 +13,20 @@
                     <img src="@item.Image" class="card-img-top" alt="..." width="50" height="250">
                     <div class="card-body">
                         <h5 class="card-title">
-                            Title: @item.Image
+                            Title: @Html.DisplayFor(modelItem => item.Title)
                         </h5>
                         <p class="card-text">
-                            Description: @item.Image
+                            Price: @Html.DisplayFor(modelItem => item.Price)$
                         </p>
                         <p class="card-text">
-                            Price: @item.Image$
+                            Qty: @Html.DisplayFor(modelItem => item.Quantity)
                         </p>
+                        <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.BookId" role="button">Add to Cart</a>
                     </div>
                 </div>
             </div>
         }
     </div>
 </div>
-
 
 
