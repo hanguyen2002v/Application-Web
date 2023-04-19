@@ -1,0 +1,44 @@
+﻿@model ProjectW.Models.Book
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <article>
+                <header class="mb-4">
+                    <h1 class="fw-bolder mb-1">@Html.DisplayFor(model => model.Title)</h1>
+                </header>
+                <figure class="mb-4"><img style="width:270px;height:356px; object-fit:cover" src="@Html.DisplayFor(model => model.Image)"></figure>
+                <section class="mb-5">
+                    <p class="fs-5 mb-4">@Html.DisplayFor(model => model.Description)</p>
+                </section>
+            </article>
+        </div>
+        <div class="col-lg-4" style="padding-top: 100px">
+            <div class="card mb-4">
+                <div class="card-header">Information</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li>@Html.DisplayNameFor(model => model.Price)</li>
+                                <li>@Html.DisplayNameFor(model => model.Category)</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="list-unstyled mb-0">
+                                <li>@Html.DisplayFor(model => model.Price)$</li>
+                                <li>@Html.DisplayFor(model => model.Category!.CategoryName)</li>
+                            </ul>
+                        </div>
+                        <div class="text-center"><a asp-controller="Home" asp-action="addCart" asp-route-id="" class="btn btn-outline-dark mt-auto">Add to cart</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

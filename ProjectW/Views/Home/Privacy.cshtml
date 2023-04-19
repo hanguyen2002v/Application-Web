@@ -1,8 +1,15 @@
-﻿@{
+﻿@model List<Book>
+
+@{
     ViewData["Title"] = "Privacy Policy";
 }
-@model List<Book>
-@*<h1>@ViewData["Title"]</h1>*@
+
+<form asp-controller="Home" asp-action="Privacy">
+    <p>
+        <input type="text" name="searchString"/>
+        <input type="submit" value="Search" />
+    </p>
+</form>
 
 <div class="container">
     <div class="row">
@@ -21,7 +28,8 @@
                         <p class="card-text">
                             Qty: @Html.DisplayFor(modelItem => item.Quantity)
                         </p>
-                        <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.BookId" role="button">Add to Cart</a>
+                        <a class="btn btn-secondary" asp-action="" asp-route-id="@item.BookId" role="button">Add to Cart</a>
+                        <a class="btn btn-success" asp-action="Detail" asp-controller="Home" asp-route-id="@item.BookId">Detail</a>
                     </div>
                 </div>
             </div>
