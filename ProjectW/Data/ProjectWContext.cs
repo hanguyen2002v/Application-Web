@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProjectW.Models;
 
 namespace ProjectW.Data
 {
-    public class ProjectWContext : DbContext
+    public class ProjectWContext : IdentityDbContext<IdentityUser>
     {
         public ProjectWContext (DbContextOptions<ProjectWContext> options)
             : base(options)
